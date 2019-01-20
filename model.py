@@ -51,10 +51,8 @@ def distanceBetween(agent_row_a, agent_row_b):
     Determine the euclidian distance between two points
 
     Keyword arguments:
-    y0: y coordinate of point 0
-    x0: x coordinate of point 0
-    y1: y coordinate of point 1
-    x1: x coordinate of point 1
+    agent_row_a: first agent
+    agent_row_b: second agent
 
     Returns:
     the euclidian distance between the two using pythagoras' theorem

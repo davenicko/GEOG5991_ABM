@@ -3,60 +3,94 @@
 model.py
 
 Created on Mon Jan 14 14:41:17 2019
-Updated on Mon Jan 14
+Updated on Thu Jan 17
 
 @author: David Nicholson
 
 A simple agent based model - initial version to add agents, perform a
 rudimentary random walk algorithm and calculate the distance between two
 points
+
+Changes:
+    - corrected the number for coordinates to be 0-99, not 0-100
+    - removed reliance on math by raising to power of 0.5 for sqrt
+    - added ability to create any number of agents with a variable
+    - added ability to have any number of random walks
+    - added a calculation for eastern-most agent
+    - added calculation to determine distance between all points with (probably
+    ) no duplications
+    - we now plot the agents using matplotlib
 """
 import random
-import math
+import operator
+import matplotlib.pyplot as plt
+import time
 
-agents=[]
+agents = []
+distances = []
+number_of_agents = 100
+number_of_walks = 1
 
 def randWalk(val):
     '''
-    Function to move a coordinate by 1 point
+    Move a coordinate by 1 point
+
+    Keyword argument:
     val: the input coordinate (either the x or y coordinate)
-    returns the revised coordinate changed by + or - 1
+
+    returns:
+    the revised coordinate changed by + or - 1
     '''
     if random.random() < 0.5:
         return val + 1
     else:
         return val - 1
 
-def distanceBetween(y0, x0, y1, x1):
+def distanceBetween(agent_row_a, agent_row_b):
     '''
-    Determines the euclidian distance between two points
+    Determine the euclidian distance between two points
+
+    Keyword arguments:
     y0: y coordinate of point 0
     x0: x coordinate of point 0
     y1: y coordinate of point 1
     x1: x coordinate of point 1
-    returns the euclidian distance between the two using pythagoras' theorem
+
+    Returns:
+    the euclidian distance between the two using pythagoras' theorem
     '''
-    return math.sqrt(((x1-x0)**2)+((y1-y0)**2))
+    return (((agent_row_a[0]-agent_row_b[0])**2)+((agent_row_a[1]-agent_row_b[1])**2))**0.5
 
-def startPos():
-    '''
-    Function to randomise starting positions of points
-    Takes no arguments
-    Returns a random value between 0 and 99
-    '''
-    return random.randint(0,100)
 
-#initialise starting positions of the points
-y0, x0 = startPos(), startPos()
-y1, x1 = startPos(), startPos()
+# append to the agents list a random point
+for i in range(number_of_agents):
+    agents.append([random.randint(0,99), random.randint(0,99)])
 
-agents.append([y0, x0])
+# randlomly walk each point 100 times
+for i in range(number_of_walks):
+    for j in range(number_of_agents):
+        agents[j][0] = randWalk(agents[j][0]) % 100
+        agents[j][1] = randWalk(agents[j][1]) % 100
 
-#randlomly walk each point 100 times
-for i in range(100):
-    y0 = randWalk(y0)
-    x0 = randWalk(x0)
-    y1 = randWalk(y1)
-    x1 = randWalk(x1)
 
-print ("distance between points = ", distanceBetween(y0, x0, y1, x1))
+# determine the eastern most point of all the agents
+eastPoint = max(agents, key=operator.itemgetter(1))
+
+start = time.clock()
+# determine the distances betwwen all the agents without duplication*
+# *probably
+for i in range(len(agents)-1):
+    for j in range(len(agents)-i-1):
+        distances.append(distanceBetween(agents[i], agents[i+j+1]))
+end = time.clock()
+
+print(distances)
+print("time taken = " + str(end - start))
+
+# plot the agents
+plt.ylim(0, 99)
+plt.xlim(0, 99)
+for i in range(number_of_agents):
+    plt.scatter(agents[i][1], agents[i][0])
+plt.scatter(eastPoint[1], eastPoint[0], color='red')
+plt.show()

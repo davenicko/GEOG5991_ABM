@@ -13,7 +13,7 @@ Changes:
     - incorporated object based agents
 """
 
-import operator
+import operator # NB - not used
 import matplotlib.pyplot
 import agentframework
 

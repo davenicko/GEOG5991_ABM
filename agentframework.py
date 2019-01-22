@@ -6,14 +6,20 @@ Created on Mon Jan 21 12:43:19 2019
 
 @author: David Nicholson
 
-The agent objects - initial version
+The agent objects
+
+Changes:
+    - added the environment to the class, and a method to interact (eat) the 
+      environment
 """
 import random
 
 class Agent():
-    def __init__(self):
+    def __init__(self, environment):
         self._x = random.randint(0,99)
         self._y = random.randint(0,99)
+        self.environment = environment
+        self.store = 0
 
     def getx(self):
         return self._x
@@ -43,6 +49,11 @@ class Agent():
             self.setx((self.x + 1) % 100)
         else:
             self.setx((self.x - 1) % 100)
+
+    def eat(self):
+        if self.environment[self.y][self.x] > 10:
+            self.environment[self.y][self.x] -= 10
+            self.store += 10
 
     x = property(getx, setx, delx, "I'm the x coordinate")
     y = property(gety, sety, dely, "I'm the y coordinate")

@@ -61,3 +61,18 @@ plt.show()
 
 plt.imshow(environment)
 plt.show()
+
+'''
+#TODO:
+    - Output environment to a file
+    - Output the total amount stored by agents to a file
+        - Option: ppend the data rather than delete
+    - Override __str__(self) to display location when printed
+    - Get agents to wander around the full environment - finding out the size
+      and then using this value to randomize starting locations and delaing
+      with boundaries
+    - Get the agents to eat all the remaining units when <10 without leaving
+      negative numbers
+    - Agents should vomit thier store if the store > 100 units
+
+'''

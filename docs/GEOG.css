@@ -1,8 +1,10 @@
-/*CSS Document*/
+/*CSS Document for the ABM website*/
+/*The main body of the text - minimum width set to 1000px so there are no
+ * problems when re-sizing the text. Background colour is set to white.*/
 body {
 	min-width: 1000px;
 	margin: 0;
-	background-color: #E5E0FF;
+	background-color: #FFFFFF;
 	font-family: verdana, arial, sans-serif;
 	font-size: .75em;
 	padding: 0;
@@ -34,6 +36,8 @@ body {
 }
 #nav1 {
 	min-width: 100px;
+	max-width: 180px;
+	background-color: #AAAAAA;
 	position: absolute;
 	margin-left: 100px;
 	width: 10%;
@@ -44,17 +48,13 @@ body {
 #nav2 {
 	min-width: 120px;
 	max-width: 180px;
+	background-color: #AAAAAA;
 	position: absolute;
 	padding: 5px 5px 5px 10px;
 	top: 70px;
 	width: 15%;
 }
-#blipverts {
-	position: absolute;
-	padding: 5px 5px 5px 10px;
-	top: 250px;
-	left: 60%;
-}
+
 #footer {
 	position: absolute;
 	text-align: center;

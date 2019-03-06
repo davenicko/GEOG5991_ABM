@@ -39,19 +39,18 @@ body {
 	max-width: 180px;
 	background-color: #DDDDDD;
 	position: relative;
-	margin-right: 180px;
+	margin-right: 0px;
 	width: 10%;
 	left: 60%;
-	top: 120px;
 	padding: 5px;
 }
 #nav2 {
-	min-width: 180px;
-	max-width: 180px;
+	min-width: 175px;
+	max-width: 175px;
 	background-color: #DDDDDD;
 	position: absolute;
 	padding: 5px 5px 5px 10px;
-	top: 70px;
+	top: 75px;
 	width: 15%;
 }
 

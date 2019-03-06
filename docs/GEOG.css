@@ -35,20 +35,20 @@ body {
 	padding: 5px 5px 5px 10px;
 }
 #nav1 {
-	min-width: 100px;
+	min-width: 180px;
 	max-width: 180px;
-	background-color: #AAAAAA;
-	position: absolute;
-	margin-left: 100px;
+	background-color: #DDDDDD;
+	position: relative;
+	margin-right: 180px;
 	width: 10%;
 	left: 60%;
 	top: 120px;
 	padding: 5px;
 }
 #nav2 {
-	min-width: 120px;
+	min-width: 180px;
 	max-width: 180px;
-	background-color: #AAAAAA;
+	background-color: #DDDDDD;
 	position: absolute;
 	padding: 5px 5px 5px 10px;
 	top: 70px;

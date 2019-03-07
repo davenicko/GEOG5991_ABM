@@ -1,4 +1,7 @@
-/* CSS Document for the ABM website */
+/* CSS Document for the ABM website. This has been designed to learn HTML    *
+ * and CSS, rather than to make the website look pretty. Though I hope it at *
+ * least looks neat!                                                         */
+
 /* The main body of the text - minimum width set to 600px so there are no
  * problems when re-sizing the window. Background colour is set to white. */
 body {
@@ -9,6 +12,18 @@ body {
 	font-size: .75em;
 	padding: 0;
 }
+/* Just for fun, let's make the first letter of the first paragraph in each  *
+ * div large and bold. The id selector is needed so we don't do the same to  *
+ * the footer                                                                */
+[id=content] p:first-of-type:first-letter  {
+	font-size: 170%;
+	font-weight: bold;
+}
+
+/*****************************************************************************
+ * ID selectors                                                              *
+ *****************************************************************************/
+
 /* The top banner with the main title of the website. */
 #banner {
 	margin-top: 0;
@@ -19,24 +34,25 @@ body {
 	line-height: 75%;
 	color: #fff;
 }
-/* The page title, set just below the main banner. Left margin set so it is not
- * covered by the left navigation bar */
+/* The page title, set just below the main banner.                           */
 #sub_banner {
-	margin-left: 180px;
 	background-color: #A4DEF9;
 	border-bottom: solid 5px #97F9F9;
 	font-size: .8em;
 	font-style: italic;
-	padding: 5px 5px 5px 10px;
+	padding: 5px 5px 5px 200px;
+	right: 0;
 }
+/* The main content of the page. Set with margins large enough to accomodate *
+ * the link menus                                                            */
 #content {
 	position: absolute;
 	margin-left: 180px;
-	margin-right: 20%;
+	margin-right: 180px;
 	top: 110px;
 	padding: 5px 5px 5px 10px;
 }
-/* The right-hand navigation bar */
+/* The right-hand navigation bar containing external links                   */
 #nav1 {
 	width: 170px;
 	height: 100%;
@@ -45,15 +61,16 @@ body {
 	padding: 5px 5px 5px 10px;
 	right: 0;
 }
+/* The left-hand navigation bar containing links to other parts of the       *
+ * website or the code repository                                            */
 #nav2 {
 	width: 170px;
 	height: 100%;
 	background-color: #DDDDDD;
 	position: absolute;
 	padding: 5px 5px 5px 10px;
-	top: 76px;
 }
-
+/* The footer containing authorship and copyright info */
 #footer {
 	position: absolute;
 	text-align: center;
@@ -61,9 +78,13 @@ body {
 	left: 40%;
 	font-size: 75%;
 }
+/*****************************************************************************
+ * Class selectors                                                           *
+ *****************************************************************************/
 .title {
 	font-size: 120%;
 }
+/* The content class is required so we can make the first letter bigger      */
 .content {
 	font-family: Verdana, Arial, sans-serif;
 	margin-left: 20px;

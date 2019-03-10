@@ -3,7 +3,6 @@
 model.py
 
 Created on Mon Jan 14 14:41:17 2019
-Updated on Thur Jan 24
 
 @author: David Nicholson
 
@@ -31,12 +30,22 @@ colNum = 0
 colNumList = []
 
 def distance_between(agents_row_a, agents_row_b):
+    '''
+    agents_row_a:   The first agent
+    agents_row_b:   The second agent
+
+    returns: The euclidian distance between the two agents
+    '''
     return (((agents_row_a.x - agents_row_b.x)**2) +
         ((agents_row_a.y - agents_row_b.y)**2))**0.5
 
 # check all rows have same number of columns
 def colCheck():
+    '''
+    Function to check all rows have the same number of columns
 
+    returns:    True if all columns are the same, False otherwise
+    '''
     incorrectCols = []
 
     for col in colNumList:

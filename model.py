@@ -18,10 +18,11 @@ Changes:
 
 import csv
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 import agentframework
 
-num_of_agents = 100
-num_of_iterations = 10000
+num_of_agents = 10
+num_of_iterations = 1
 agents = []
 row_list = []
 environment = []
@@ -63,6 +64,22 @@ def col_check():
     else:
         return True
 
+def update(frame_number):
+    fig.clear()
+
+    # Move the agents.
+    for j in range(num_of_iterations):
+        print("Iteration = ", j)
+        for i in range(num_of_agents):
+            agents[i].move()
+            agents[i].eat()
+
+    plt.xlim(0, col_num_list[0])
+    plt.ylim(0, row_num)
+    plt.imshow(environment)
+    for i in range(num_of_agents):
+        plt.scatter(agents[i].x, agents[i].y)
+
 with open('in.txt', newline='') as file:
     dataset = csv.reader(file, quoting=csv.QUOTE_NONNUMERIC)
     for row in dataset:
@@ -80,21 +97,15 @@ with open('in.txt', newline='') as file:
 if col_check():
     # Make the agents.
     for i in range(num_of_agents):
-        agents.append(agentframework.Agent(environment, row_num,
+        agents.append(agentframework.Agent(environment, agents, row_num,
                                            col_num_list[0]))
 
-    # Move the agents.
-    for j in range(num_of_iterations):
-        for i in range(num_of_agents):
-            agents[i].move()
-            agents[i].eat()
+    #Setup the figure
+    fig = plt.figure(figsize=(7, 7))
+    ax = fig.add_axes([0, 0, 1, 1])
 
-
-    plt.xlim(0, col_num_list[0])
-    plt.ylim(0, row_num)
-    plt.imshow(environment)
-    for i in range(num_of_agents):
-        plt.scatter(agents[i].x, agents[i].y)
+    # Move the agents and show the frame of anmation.
+    model_animation = animation.FuncAnimation(fig, update, 100, interval=1, repeat=False)
     plt.show()
 
     # Output environment to a file

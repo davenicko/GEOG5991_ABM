@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 model.py
@@ -17,28 +18,34 @@ Changes:
 """
 
 import csv
+import random
+import sys
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import agentframework
 
 num_of_agents = 10
 num_of_iterations = 1
+neighbourhood = 20
+
+# If the correct number of paramaters is passed at the command line
+# then change the model parameters to those parameters
+try:
+    if len(sys.argv) == 4:
+        num_of_agents = int(sys.argv[1])
+        num_of_iterations = int(sys.argv[2])
+        neighbourhood = int(sys.argv[3])
+except:
+    print("Invalid parameters given. Defaulting to:")
+    print("num_of_agents=10")
+    print("num_of_iterations = 1")
+    print("neighbourhood = 20")
 agents = []
 row_list = []
 environment = []
 row_num = 0
 col_num = 0
 col_num_list = []
-
-def distance_between(agents_row_a, agents_row_b):
-    '''
-    agents_row_a:   The first agent
-    agents_row_b:   The second agent
-
-    returns: The euclidian distance between the two agents
-    '''
-    return (((agents_row_a.x - agents_row_b.x)**2) +
-            ((agents_row_a.y - agents_row_b.y)**2))**0.5
 
 # check all rows have same number of columns
 def col_check():
@@ -65,23 +72,33 @@ def col_check():
         return True
 
 def update(frame_number):
+    '''
+    Functon to update the current frame of the animation of the model.
+    First the agents move, then they eat, then the current environment
+    and agent positions are shown.
+    '''
     fig.clear()
+
+    # Shuffle the agents
+    random.shuffle(agents)
 
     # Move the agents.
     for j in range(num_of_iterations):
-        print("Iteration = ", j)
         for i in range(num_of_agents):
             agents[i].move()
             agents[i].eat()
+            agents[i].share_with_neighbours(neighbourhood)
 
+    # Plot the environment and agent positions
     plt.xlim(0, col_num_list[0])
     plt.ylim(0, row_num)
     plt.imshow(environment)
     for i in range(num_of_agents):
         plt.scatter(agents[i].x, agents[i].y)
 
-with open('in.txt', newline='') as file:
-    dataset = csv.reader(file, quoting=csv.QUOTE_NONNUMERIC)
+# Open the environment file and read into the environment variable
+with open('in.txt', newline='') as file1:
+    dataset = csv.reader(file1, quoting=csv.QUOTE_NONNUMERIC)
     for row in dataset:
         row_num += 1
         for values in row:
@@ -95,17 +112,17 @@ with open('in.txt', newline='') as file:
 #If the columns are all the same length, make the agents
 #If not all the same length things get a bit more complicated!
 if col_check():
-    # Make the agents.
-    for i in range(num_of_agents):
-        agents.append(agentframework.Agent(environment, agents, row_num,
-                                           col_num_list[0]))
+    for k in range(num_of_agents):
+        agents.append(agentframework.Agent(environment, row_num,
+                                           col_num_list[0], agents))
 
     #Setup the figure
     fig = plt.figure(figsize=(7, 7))
     ax = fig.add_axes([0, 0, 1, 1])
 
     # Move the agents and show the frame of anmation.
-    model_animation = animation.FuncAnimation(fig, update, 100, interval=1, repeat=False)
+    model_animation = animation.FuncAnimation(fig, update, frames=100,
+                                              interval=1, repeat=False)
     plt.show()
 
     # Output environment to a file
@@ -121,3 +138,6 @@ if col_check():
             total += agent.store
         file3.write(str(total) + "\n")
 
+else:
+    print("The environment file contains rows that are of differing lengths. "\
+          "The model did not run.")

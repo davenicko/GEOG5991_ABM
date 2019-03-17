@@ -11,18 +11,92 @@
   <h2>Website to showcase assignment 1 output</h2>
  </div>
  <div id="sub_banner">
-  <h3>Code explanation</h3>
+  <h2>Code explanation</h2>
  </div>
  <div id="content">
   <h3>Background</h3>
-  <p class="content">A little about the code... (to add)</p>
-  <p class="content">Paragraph 2</p>
-  <p class="content">Paragraph 3</p>
-  <p class="content">Paragraph 4</p>
+  <h4>Introduction</h4>
+  <p class="content">The code has been developed as a tool to learn the basics
+  of programming, specifically using the Python programming language.
+  Specifically the main subjects covered were:</p>
+  <ul>
+   <li>Variables</li>
+   <li>Containers</li>
+   <li>Control Structures</li>
+   <li>Functions</li>
+   <li>Classes</li>
+   <li>Input and Output</li>
+   <li>Modules</li>
+   <li>Exceptions</li>
+  </ul>
+  <p class="content">This webpage will walk through the major parts of the code
+  explaining the functions and class contained within. As well as the function
+  of the model.</p>
+  <h4>The model function</h4>
+  <p class="content">The model can be run by opening in a graphical user
+  interface (GUI) and selecting "run" from the relevant menu. It must be
+  ensured that the file agentframework.py is contained within the current
+  working directory (CWD) in order for the model.py file to import it. An
+  environment file will also need to be stored in the CWD and needs to be named
+  in.txt. An example file is provided in the GITHUB repository. In addition
+  to running from a GUI, the model is also designed to be run from the command
+  line using syntax such as `python3 model.py`. If using a Linux system, the
+  model can also be started by entering the directory the model is saved and
+  running <b>./model.py</b> if the file has been set to executable using CHMOD.
+  For instructions on how to use CHMOD see 
+  <a href="https://askubuntu.com/a/932719">this</a> answer on 
+  <a href="https://askubuntu.com">askubuntu.com</a>. But in short you
+  can use <b>sudo CHMOD 755 model.py</b> to set the file to excecutable for all
+  users. When using the command line to initiate the model you can provide
+  three command line arguments (you need to provide exactly three otherwise
+  the model uses the default values). The arguments change the following model
+  parameters:</p>
+  <ul>
+   <li>num_of_agents (defaults to 10)</li>
+   <li>num_of_iterations (defaults to 1)</li>
+   <li>neighbourhood (defaults to 20)</li>
+  </ul>
+  <p class="content">num_of_agents is the total number of agents initiated in 
+  the model. num_of_iterations is the number of iterations the model calculates
+  for each frame of the model run (which runs for a total of 100 frames). 
+  neighbourhood is the minimum euclidian distance between two agents which 
+  allows them to share resources.</p>
+<h4>The model.py file</h4>
+  <p class="content">The model.py file contains the main driver code for the
+  model. The programm imports the agent class, which it uses to create the
+  agents which it stores in a python list. The program contains a number of
+  functions, which are described as follows.</p>
+  <h5>col_check</h5>
+  <p class="content">A function to check that the provided environment file 
+  contains rows which are all the same length. This is important so that the 
+  agents consistently wrap around the world at the edge of the given 
+  environment. The function returns True if all the rows are the same length, 
+  False if they are not. If the environemnt does not meet these conditions, the
+  model does not run and a message is printed to the command line.</p>
+  <h5>update</h5>
+  <p class="content">A function to update the frame of animation. The function
+  is used in the FuncAnimation function of matplotlib and as such requires a
+  positional argument which describes the current frame. See 
+  <a href="https://matplotlib.org/api/_as_gen/matplotlib.animation.FuncAnimation.html">
+	  here</a> for more information. The function shuffles the agent list, so 
+  that the agents are updated in a random order each frame, moves the agents
+  and calls the eat and share functions of the agent objects. The function
+  then plots the environemnt and the agents to complete the frame.</p>
   <p class="content">Paragraph 5</p>
-  <p class="content">Paragraph 6</p>
+  <p class="content">Paragraph 5</p>
+  <p class="content">Paragraph 5</p>
+  <p class="content">Improvements</p>
+  <ul>
+   <li>Add command line arguments for number of frames</li>
+   <li>Run the model multiple times from the command line</li>
+   <li>The matplotlib output changes the colour scale frequently - figure out
+   how to stabilise the colours.</li>
+   <li></li>
+  </ul>
+  <p id=footer>Copyright David Nicholson 2019</p>
+
  </div>
- <div id="nav1">
+  <div id="nav1">
   <h3>Useful Links</h3>
   <a href="http://www.geog.leeds.ac.uk/courses/computing/study/core-python-odl/">GEOG5991M Homepage</a><br />
   <p></p>
@@ -39,8 +113,5 @@
   <p></p>
   <a href="https://github.com/davenicko/GEOG5991_ABM/">Code on github</a><br />
  </div>
- <div id="footer">
-  <p>Copyright David Nicholson 2019</p>
- </div>
- </body>
+</body>
 </html>

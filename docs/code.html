@@ -61,7 +61,7 @@
   for each frame of the model run (which runs for a total of 100 frames). 
   neighbourhood is the minimum euclidian distance between two agents which 
   allows them to share resources.</p>
-<h4>The model.py file</h4>
+  <h4>The model.py file</h4>
   <p class="content">The model.py file contains the main driver code for the
   model. The programm imports the agent class, which it uses to create the
   agents which it stores in a python list. The program contains a number of
@@ -82,7 +82,13 @@
   that the agents are updated in a random order each frame, moves the agents
   and calls the eat and share functions of the agent objects. The function
   then plots the environemnt and the agents to complete the frame.</p>
-  <p class="content">Paragraph 5</p>
+  <h4>The operation of the model</h4>
+  <p class="content">The model begins by opening and importing the environemnt
+  into list. Each row of the environemnt is placed as a list within this list.
+  The model then checks the environment to make sure that all the rows are the
+  same length. If the environment file is validated the agents are created and
+  stored in a list named <b>agents</b>. The matplotlib figure is setup, the
+  agents moved and the resources are collected and shared.</p>
   <p class="content">Paragraph 5</p>
   <p class="content">Paragraph 5</p>
   <p class="content">Improvements</p>

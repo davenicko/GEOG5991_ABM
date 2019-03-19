@@ -2,8 +2,10 @@
  * and CSS, rather than to make the website look pretty. Though I hope it at *
  * least looks neat!                                                         */
 
+
 /* The main body of the text - minimum width set to 600px so there are no
  * problems when re-sizing the window. Background colour is set to white. */
+
 body {
 	min-width: 600px;
 	margin: 0;
@@ -12,19 +14,24 @@ body {
 	font-size: .75em;
 	padding: 0;
 }
+
+
 /* Just for fun, let's make the first letter of the first paragraph in each  *
  * div large and bold. The id selector is needed so we don't do the same to  *
  * the footer                                                                */
-[id=content] p:first-of-type:first-letter  {
+
+[id=content] p:first-of-type:first-letter {
 	font-size: 170%;
 	font-weight: bold;
 }
+
 
 /*****************************************************************************
  * ID selectors                                                              *
  *****************************************************************************/
 
 /* The top banner with the main title of the website. */
+
 #banner {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -34,7 +41,10 @@ body {
 	line-height: 75%;
 	color: #fff;
 }
+
+
 /* The page title, set just below the main banner.                           */
+
 #sub_banner {
 	background-color: #A4DEF9;
 	border-bottom: solid 5px #97F9F9;
@@ -43,8 +53,11 @@ body {
 	padding: 5px 5px 5px 200px;
 	right: 0;
 }
+
+
 /* The main content of the page. Set with margins large enough to accomodate *
  * the link menus                                                            */
+
 #content {
 	position: absolute;
 	margin-left: 180px;
@@ -52,31 +65,35 @@ body {
 	top: 115px;
 	padding: 5px 5px 50px 10px;
 }
-/* The right-hand navigation bar containing external links                   */
+
+
+/* The right-hand navigation bar containing external links                   * 
+ * I don't know why the navbars do not extend to the botoom of the parent div*/
+
 #nav1 {
 	width: 170px;
-	height: 100%;
+	min-height: 100%;
 	background-color: #DDDDDD;
 	position: absolute;
 	padding: 5px 5px 5px 10px;
 	right: 0;
 }
+
+
 /* The left-hand navigation bar containing links to other parts of the       *
  * website or the code repository                                            */
+
 #nav2 {
 	width: 170px;
-	height: 100%;
+	min-height: 100%;
 	background-color: #DDDDDD;
 	position: absolute;
 	padding: 5px 5px 5px 10px;
 }
 
-#body {
-	padding: 10px;
-	padding-bottom: 50px;
-}
 
 /* The footer containing authorship and copyright info */
+
 #footer {
 	clear: both;
 	position: relative;
@@ -85,14 +102,21 @@ body {
 	font-size: 75%;
 	width: 100%;
 	height: 10px;
+	padding: 20px 5px 5px 5px;
 }
+
+
 /*****************************************************************************
  * Class selectors                                                           *
  *****************************************************************************/
+
 .title {
 	font-size: 120%;
 }
+
+
 /* The content class is required so we can make the first letter bigger      */
+
 .content {
 	font-family: Verdana, Arial, sans-serif;
 	margin-left: 20px;

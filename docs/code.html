@@ -6,146 +6,178 @@
       <link href="GEOG.css" rel="stylesheet" type="text/css" />
    </head>
    <body>
-      <div id="banner">
-         <h1>GEOG5881M - Programming for GIS</h1>
-         <h2>Website to showcase assignment 1 output</h2>
-      </div>
-      <div id="sub_banner">
-         <h2>Code explanation</h2>
-      </div>
-      <div id="content">
-         <h3>Background</h3>
-         <h4>Introduction</h4>
-         <p class="content">The code has been developed as a tool to learn the basics
-            of programming, specifically using the Python programming language.
-            Specifically the main subjects covered were:
-         </p>
-         <ul>
-            <li>Variables</li>
-            <li>Containers</li>
-            <li>Control Structures</li>
-            <li>Functions</li>
-            <li>Classes</li>
-            <li>Input and Output</li>
-            <li>Modules</li>
-            <li>Exceptions</li>
-         </ul>
-         <p class="content">This webpage will walk through the major parts of the code
-            explaining the functions and class contained within. As well as the function
-            of the model.
-         </p>
-         <h4>Operation of The Model</h4>
-         <p class="content">The model can be run by opening in a graphical user
-            interface (GUI) and selecting "run" from the relevant menu. It must be
-            ensured that the file agentframework.py is contained within the current
-            working directory (CWD) in order for the model.py file to import it. An
-            environment file will also need to be stored in the CWD and needs to be named
-            in.txt. An example file is provided in the GITHUB repository. In addition
-            to running from a GUI, the model is also designed to be run from the command
-            line using syntax such as `python3 model.py`. If using a Linux system, the
-            model can also be started by entering the directory the model is saved and
-            running <b>./model.py</b> if the file has been set to executable using CHMOD.
-            For instructions on how to use CHMOD see 
-            <a href="https://askubuntu.com/a/932719">this</a> answer on 
-            <a href="https://askubuntu.com">askubuntu.com</a>. But in short you
-            can use <b>sudo CHMOD 755 model.py</b> to set the file to excecutable for all
-            users. When using the command line to initiate the model you can provide
-            three command line arguments (you need to provide exactly three otherwise
-            the model uses the default values). The arguments change the following model
-            parameters:
-         </p>
-         <ul>
-            <li>num_of_agents (defaults to 10)</li>
-            <li>num_of_iterations (defaults to 1)</li>
-            <li>neighbourhood (defaults to 20)</li>
-         </ul>
-         <p class="content">num_of_agents is the total number of agents initiated in 
-            the model. num_of_iterations is the number of iterations the model calculates
-            for each frame of the model run (which runs for a total of 100 frames). 
-            neighbourhood is the minimum euclidian distance between two agents which 
-            allows them to share resources.
-         </p>
-         <h4>The model.py file</h4>
-         <p class="content">The model.py file contains the main driver code for the
-            model. The programm imports the agent class, which it uses to create the
-            agents which it stores in a python list. The program contains a number of
-            functions, which are described as follows.
-         </p>
-         <h5>col_check</h5>
-         <p class="content">A function to check that the provided environment file 
-            contains rows which are all the same length. This is important so that the 
-            agents consistently wrap around the world at the edge of the given 
-            environment. The function returns True if all the rows are the same length, 
-            False if they are not. If the environment does not meet these conditions, the
-            model does not run and a message is printed to the command line.
-         </p>
-         <h5>update</h5>
-         <p class="content">A function to update the frame of animation. The function
-            is used in the FuncAnimation function of matplotlib and as such requires a
-            positional argument which describes the current frame. See 
-            <a href="https://matplotlib.org/api/_as_gen/matplotlib.animation.FuncAnimation.html">
-            here</a> for more information. The function shuffles the agent list, so 
-            that the agents are updated in a random order each frame, moves the agents
-            and calls the eat and share functions of the agent objects. The function
-            then plots the environment and the agents to complete the frame.
-         </p>
-         <h4>The agentframework.py File</h4>
-         <p class="content">The agentframework.py file contains the agent class used 
-            to generate each agent object. The module contains only the Agent class,
-            which contains the following data:
-         </p>
-         <ul>
-            <li>The agents position in (x, y) format</li>
-            <li>A copy of the environment the agent is in</li>
-            <li>The store of resources the agent holds, in other words how full it is</li>
-            <li>The number of rows and columns of the environment which are used to wrap
-			   the agents around the environment (causing the environment to take the shape
-			   of a torus)</li>
-         </ul>
-		 <h5>__init__</h5>
-         <p class="content">The __init__ method initialises each agent passing in the environment,
-		    the size of the world and a list of all the agents. The method sets a random position
-		    for each agent created.</p>
-         <h5>__str__</h5>
-         <p class="content">The __str__ method is called when an object is passed to the print
-		    function. It returns the Location of the agent printed.<p>
-         <h4>The operation of the model</h4>
-         <p class="content">The model begins by opening and importing the environment
-            into list. Each row of the environment is placed as a list within this list.
-            The model then checks the environment to make sure that all the rows are the
-            same length. If the environment file is validated the agents are created and
-            stored in a list named <b>agents</b>. The matplotlib figure is setup, the
-            agents moved and the resources are collected and shared.
-         </p>
-         <p class="content">Paragraph 5</p>
-         <p class="content">Paragraph 5</p>
-         <p class="content">Improvements</p>
-         <ul>
-            <li>Add command line arguments for number of frames</li>
-            <li>Run the model multiple times from the command line</li>
-            <li>The matplotlib output changes the colour scale frequently - figure out
-               how to stabilise the colours.
-            </li>
-            <li></li>
-         </ul>
-         <p id=footer>Copyright David Nicholson 2019</p>
-      </div>
-      <div id="nav1">
-         <h3>Useful Links</h3>
-         <a href="http://www.geog.leeds.ac.uk/courses/computing/study/core-python-odl/">GEOG5991M Homepage</a><br />
-         <p></p>
-         <a href="http://www.leeds.ac.uk/">University of Leeds Homepage</a><br />
-         <p></p>
-         <a href="https://www.python.org/">Python Homepage</a><br />
-         <p></p>
-      </div>
-      <div id="nav2">
-         <h3>GEOG5881M Assignment 1</h3>
-         <a href="https://davenicko.github.io/GEOG5991_ABM/index.html">Home</a><br />
-         <a href="https://davenicko.github.io/GEOG5991_ABM/about.html">About me</a><br />
-         <a href="https://davenicko.github.io/GEOG5991_ABM/code.html">Code explanation</a><br />
-         <p></p>
-         <a href="https://github.com/davenicko/GEOG5991_ABM/">Code on github</a><br />
-      </div>
+	  <div>
+         <div id="banner">
+            <h1>GEOG5881M - Programming for GIS</h1>
+            <h2>Website to showcase assignment 1 output</h2>
+         </div>
+         <div id="sub_banner">
+            <h2>Code explanation</h2>
+         </div>
+         <div id="content">
+            <h3>Introduction</h3>
+            <p class="content">The code has been developed as a tool to learn the basics
+               of programming, specifically using the Python programming language.
+               Specifically the main subjects covered were:
+            </p>
+            <ul>
+               <li>Variables</li>
+               <li>Containers</li>
+               <li>Control Structures</li>
+               <li>Functions</li>
+               <li>Classes</li>
+               <li>Input and Output</li>
+               <li>Modules</li>
+               <li>Exceptions</li>
+            </ul>
+            <p class="content">This webpage will walk through the major parts of the code
+               explaining the functions and class contained within. As well as the function
+               of the model.
+            </p>
+            <h3>Operation of The Model</h3>
+            <p class="content">The model can be run by opening in a graphical user
+               interface (GUI) and selecting "run" from the relevant menu. It must be
+               ensured that the file agentframework.py is contained within the current
+               working directory (CWD) in order for the model.py file to import it. An
+               environment file will also need to be stored in the CWD and needs to be named
+               in.txt. An example file is provided in the GITHUB repository. In addition
+               to running from a GUI, the model is also designed to be run from the command
+               line using syntax such as `python3 model.py`. If using a Linux system, the
+               model can also be started by entering the directory the model is saved and
+               running <b>./model.py</b> if the file has been set to executable using CHMOD.
+               For instructions on how to use CHMOD see 
+               <a href="https://askubuntu.com/a/932719">this</a> answer on 
+               <a href="https://askubuntu.com">askubuntu.com</a>. But in short you
+               can use <b>sudo CHMOD 755 model.py</b> to set the file to excecutable for all
+               users. When using the command line to initiate the model you can provide
+               three command line arguments (you need to provide exactly three otherwise
+               the model uses the default values). The arguments change the following model
+               parameters:
+            </p>
+            <ul>
+               <li>num_of_agents (defaults to 10)</li>
+               <li>num_of_iterations (defaults to 1)</li>
+               <li>neighbourhood (defaults to 20)</li>
+            </ul>
+            <p class="content">The model begins by opening and importing the environment
+               into list. Each row of the environment is placed as a list within this list.
+               The model then checks the environment to make sure that all the rows are the
+               same length. If the environment file is validated the agents are created and
+               stored in a list named <b>agents</b>. The matplotlib figure is setup, the
+               agents moved and the resources are collected and shared.
+            </p>
+            <p class="content">num_of_agents is the total number of agents initiated in 
+               the model. num_of_iterations is the number of iterations the model calculates
+               for each frame of the model run (which runs for a total of 100 frames). 
+               neighbourhood is the minimum euclidian distance between two agents which 
+               allows them to share resources.
+            </p>
+            <h3>The model.py file</h3>
+            <p class="content">The model.py file contains the main driver code for the
+               model. The programm imports the agent class, which it uses to create the
+               agents which it stores in a python list. The program contains a number of
+               functions, which are described as follows.
+            </p>
+            <h4>col_check</h4>
+            <p class="content">A function to check that the provided environment file 
+               contains rows which are all the same length. This is important so that the 
+               agents consistently wrap around the world at the edge of the given 
+               environment. The function returns True if all the rows are the same length, 
+               False if they are not. If the environment does not meet these conditions, the
+               model does not run and a message is printed to the command line.
+            </p>
+            <h4>update</h4>
+            <p class="content">A function to update the frame of animation. The function
+               is used in the FuncAnimation function of matplotlib and as such requires a
+               positional argument which describes the current frame. See 
+               <a href="https://matplotlib.org/api/_as_gen/matplotlib.animation.FuncAnimation.html">
+               here</a> for more information. The function shuffles the agent list, so 
+               that the agents are updated in a random order each frame, moves the agents
+               and calls the eat and share functions of the agent objects. The function
+               then plots the environment and the agents to complete the frame.
+            </p>
+            <h3>The agentframework.py File</h3>
+            <p class="content">The agentframework.py file contains the agent class used 
+               to generate each agent object. The module contains only the Agent class,
+               which contains the following data:
+            </p>
+            <ul>
+               <li>The agents position in (x, y) format</li>
+               <li>A copy of the environment the agent is in</li>
+               <li>The store of resources the agent holds, in other words how full it is</li>
+               <li>The number of rows and columns of the environment which are used to wrap
+	      	   the agents around the environment (causing the environment to take the shape
+	      	   of a torus)</li>
+            </ul>
+	       <h4>__init__</h4>
+            <p class="content">The __init__ method initialises each agent passing in the environment,
+	          the size of the world and a list of all the agents. The method sets a random position
+	          for each agent created.</p>
+            <h4>__str__</h4>
+            <p class="content">The __str__ method is called when an object is passed to the print
+	          function. It returns the Location of the agent printed.<p>
+            <h4>get, set and del methods</h4>
+            <p class="content">The get, set and del methods are used to control the access to the
+	          class variables, and can be used to restrict how these variables are set. This is 
+	      	achieved using the property function as explained 
+	      	<a href="https://docs.python.org/3/library/functions.html#property">here</a><p>
+            <h4>move</h4>
+	       <p class="content">The move function takes a random floating pooint number from 0 to 1
+	          and if the number is &lt 0.5, 1 is added to the y coordinate otherwise 1 is subtracted
+	          from the y coordinate.A similar check is then perfomred for the x coordinate.</p>
+            <h4>eat</h4>
+	       <p class="content">The eat function checks if there are 10 or more resources in the 
+	          agents current location, and if there are it takes 10 resources and adds them to the
+	          agents store. If there are less than 10, the agent takes all availabe resources and
+	          adds them to the store. Finally, if the agents store, as a result of adding the
+	          resources, exceeds 100 then the entire store is emptied to the current location.</p>
+            <h4>share_with_neighbours</h4>
+	       <p class="content">The share_with_neighbours method checks to see if there are any other 
+	          agents in the vicinity, and if there are it the agent shares resources with them. The
+	          vicinity is determined by the neighbourhood variable of the model.</p>
+            <h4>distance_between</h4>
+	       <p class="content">The distance_between method calculates the euclidian distance between 
+	          two agents and returns it as a float.</p>
+            <h3>Potential Improvements to the Model</h3>
+	       <p class="content">There are a number of improvements which could be made to the model
+	          which could include:</p>
+	       <p class="content"></p>
+            <ul>
+               <li>A command line argument could be added which would be used to specify the number
+	      	   of frames the model runs for</li>
+               <li>An option to run the model multiple times from the command line would be useful
+	      	   especially in order to test the sensitivity of the model to certain parameters. The
+	      	   model could save the results of these simulations in an external file for easy
+	      	   examination.</li>
+               <li>The matplotlib output changes the colour scale frequently - it would be better if
+	      	   the scale used is kept constant.</li>
+               <li>Implement code to make the agents move in a more realistic way, taking a list of
+				  surrounding locations and randomly choosing from that. This is more realistic than
+			   	  the current situation where the agents move one unit in the x dirction AND one unit
+			      in the y direction. THis has the effect of the agents only moving diagonally, and
+				  in fact there will be agents that could never land on the same location because
+				  of this, similarly to how the bishops of one player cannot meet each other on the
+				  chess board.</li>
+            </ul>
+            <p id=footer>Copyright David Nicholson 2019</p>
+         </div>
+         <div id="nav1">
+            <h3>Useful Links</h3>
+            <a href="http://www.geog.leeds.ac.uk/courses/computing/study/core-python-odl/">GEOG5991M Homepage</a><br />
+            <p></p>
+            <a href="http://www.leeds.ac.uk/">University of Leeds Homepage</a><br />
+            <p></p>
+            <a href="https://www.python.org/">Python Homepage</a><br />
+            <p></p>
+         </div>
+         <div id="nav2">
+            <h3>GEOG5881M Assignment 1</h3>
+            <a href="https://davenicko.github.io/GEOG5991_ABM/index.html">Home</a><br />
+            <a href="https://davenicko.github.io/GEOG5991_ABM/about.html">About me</a><br />
+            <a href="https://davenicko.github.io/GEOG5991_ABM/code.html">Code explanation</a><br />
+            <p></p>
+            <a href="https://github.com/davenicko/GEOG5991_ABM/">Code on github</a><br />
+         </div>
+	  </div>
    </body>
 </html>

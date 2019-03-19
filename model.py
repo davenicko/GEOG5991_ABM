@@ -3,17 +3,9 @@
 """
 model.py
 
-Created on Mon Jan 14 14:41:17 2019
-
 @author: David Nicholson
 
 A simple agent based model
-
-Changes:
-    - Output of environment to file added
-    - Output of total consumption of agents to a file added
-    - Made the agents use the entire environment (but not properly error
-      checked - yet!)
 
 """
 
@@ -95,6 +87,12 @@ def update(frame_number):
     plt.imshow(environment)
     for i in range(num_of_agents):
         plt.scatter(agents[i].x, agents[i].y)
+
+###############################################################################
+#                                                                             #
+# Model run start                                                             #
+#                                                                             #
+###############################################################################
 
 # Open the environment file and read into the environment variable
 with open('in.txt', newline='') as file1:

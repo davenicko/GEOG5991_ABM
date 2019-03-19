@@ -2,32 +2,27 @@
 """
 agentframework.py
 
-Created on Mon Jan 21 12:43:19 2019
-
 @author: David Nicholson
 
-The agent class for the GEOG5991 practical agent based model.
+The agent class for the GEOG5991 practical agent based model. Contains the
+Class which is used to generate all the agent objects.
 
-Each agent contains it's position in the environment, the environment
-itself, and how "full" the agent is. The agent moves in a random
-direction when the move function is called. When the eat function is
-called, if the position in the environment has less than 10 resources
-then all resources are taken and added to the agent's store. If there
-are greater than 10 resources then 10 are taken and added to the store.
-If the agent's store after this consumption is greater than or equal to
-100, the total store is removed from the agent and placed on the
-current environment coordinate.
-
-Changes:
-    - override the __str__() method to print out agent coordinates
-    - Made the agents use the entire environment (but not properly error
-      checked - yet!)
-    - Made the agents eat all units remaining if number of units <=10
-    - Agents now vomit all of thier store is store > 100
 """
 import random
 
 class Agent():
+    """
+    Each agent contains it's position in the environment, the environment
+    itself, and how "full" the agent is. The agent moves in a random
+    direction when the move function is called. When the eat function is
+    called, if the position in the environment has less than 10 resources
+    then all resources are taken and added to the agent's store. If there
+    are greater than 10 resources then 10 are taken and added to the store.
+    If the agent's store after this consumption is greater than or equal to
+    100, the total store is removed from the agent and placed on the
+    current environment coordinate.
+
+    """
     def __init__(self, environment, rowNum, colNum, agents):
         '''
         Initialise the agent.
@@ -57,21 +52,39 @@ class Agent():
         return "Location = [" + str(self.x) + ", " + str(self.y) + "]"
 
     def getx(self):
+        """
+        Get the x coordinate of the agent.
+        """
         return self._x
 
     def gety(self):
+        """
+        Get the y coordinate of the agent.
+        """
         return self._y
 
     def setx(self, value):
+        """
+        Set the x coordinate of the agent.
+        """
         self._x = value
 
     def sety(self, value):
+        """
+        Set the y coordinate of the agent.
+        """
         self._y = value
 
     def delx(self):
+        """
+        Delete the x coordinate of the agent.
+        """
         del self._x
 
     def dely(self):
+        """
+        Delete the y coordinate of the agent.
+        """
         del self._y
 
     def move(self):
@@ -129,8 +142,8 @@ class Agent():
         '''
         other:   The agent we are comparing
 
-        returns: The euclidian distance between the agent and this
-                 agent
+        returns: A float representing the euclidian distance between the agent
+                 and this agent
         '''
         return (((self.x - other.x)**2) +
                 ((self.y - other.y)**2))**0.5

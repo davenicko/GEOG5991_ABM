@@ -39,6 +39,8 @@ body {
 	border-bottom: solid 1px #999;
 	padding: 5px 5px 5px 10px;
 	line-height: 75%;
+	left: 175px;
+	right: 175px;
 	color: #fff;
 }
 
@@ -51,7 +53,8 @@ body {
 	font-size: .8em;
 	font-style: italic;
 	padding: 5px 5px 5px 200px;
-	right: 0;
+	left: 175px;
+	right: 175px;
 }
 
 
@@ -105,12 +108,12 @@ body {
 
 .nav1 {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
-	width: 160px; /* Set the width of the sidebar */
+	width: 175px; /* Set the width of the sidebar */
 	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
 	z-index: 1; /* Stay on top */
 	top: 0; /* Stay at the top */
 	right: 0;
-	background-color: #111; /* Black */
+	background-color: #DDDDDD; /* Grey */
 	overflow-x: hidden; /* Disable horizontal scroll */
 	padding-top: 20px;
 }
@@ -119,14 +122,14 @@ body {
 .nav1 a {
 	  padding: 6px 8px 6px 16px;
 	  text-decoration: none;
-	  font-size: 25px;
-	  color: #818181;
+	  font-size: 16px;
+	  color: #000000;
 	  display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .nav1 a:hover {
-	  color: #f1f1f1;
+	  color: #333333;
 }
 
 /* The left-hand navigation bar containing links to other parts of the       *
@@ -134,12 +137,12 @@ body {
 
 .nav2 {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
-	width: 160px; /* Set the width of the sidebar */
+	width: 175px; /* Set the width of the sidebar */
 	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
 	z-index: 1; /* Stay on top */
 	top: 0; /* Stay at the top */
 	left: 0;
-	background-color: #111; /* Black */
+	background-color: #DDDDDD; /* Grey */
 	overflow-x: hidden; /* Disable horizontal scroll */
 	padding-top: 20px;
 }
@@ -148,14 +151,14 @@ body {
 .nav2 a {
 	  padding: 6px 8px 6px 16px;
 	  text-decoration: none;
-	  font-size: 25px;
-	  color: #818181;
+	  font-size: 16px;
+	  color: #000000;
 	  display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .nav2 a:hover {
-	  color: #f1f1f1;
+	  color: #333333;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

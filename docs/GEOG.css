@@ -67,29 +67,6 @@ body {
 }
 
 
-/* The right-hand navigation bar containing external links                   * 
- * I don't know why the navbars do not extend to the botoom of the parent div*/
-
-#nav1 {
-	width: 170px;
-	min-height: 100%;
-	background-color: #DDDDDD;
-	position: absolute;
-	padding: 5px 5px 5px 10px;
-	right: 0;
-}
-
-
-/* The left-hand navigation bar containing links to other parts of the       *
- * website or the code repository                                            */
-
-#nav2 {
-	width: 170px;
-	min-height: 100%;
-	background-color: #DDDDDD;
-	position: absolute;
-	padding: 5px 5px 5px 10px;
-}
 
 
 /* The footer containing authorship and copyright info */
@@ -121,4 +98,70 @@ body {
 	font-family: Verdana, Arial, sans-serif;
 	margin-left: 20px;
 	margin-right: 20px;
+}
+
+/* The right-hand navigation bar containing external links                   * 
+ * I don't know why the navbars do not extend to the botoom of the parent div*/
+
+.nav1 {
+	height: 100%; /* Full-height: remove this if you want "auto" height */
+	width: 160px; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	right: 0;
+	background-color: #111; /* Black */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
+}
+
+/* The navigation menu links */
+.nav1 a {
+	  padding: 6px 8px 6px 16px;
+	  text-decoration: none;
+	  font-size: 25px;
+	  color: #818181;
+	  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.nav1 a:hover {
+	  color: #f1f1f1;
+}
+
+/* The left-hand navigation bar containing links to other parts of the       *
+ * website or the code repository                                            */
+
+.nav2 {
+	height: 100%; /* Full-height: remove this if you want "auto" height */
+	width: 160px; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: #111; /* Black */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
+}
+
+/* The navigation menu links */
+.nav2 a {
+	  padding: 6px 8px 6px 16px;
+	  text-decoration: none;
+	  font-size: 25px;
+	  color: #818181;
+	  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.nav2 a:hover {
+	  color: #f1f1f1;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+	.nav1 {padding-top: 15px;}
+	.nav1 a {font-size: 18px;}
+	.nav2 {padding-top: 15px;}
+	.nav2 a {font-size: 18px;}
 }

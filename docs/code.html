@@ -47,7 +47,7 @@
             For instructions on how to use CHMOD see 
             <a href="https://askubuntu.com/a/932719">this</a> answer on 
             <a href="https://askubuntu.com">askubuntu.com</a>. But in short you
-            can use <b>sudo CHMOD 755 model.py</b> to set the file to excecutable for all
+            can use <b>sudo CHMOD 755 model.py</b> to set the file to executable for all
             users. When using the command line to initiate the model you can provide
             three command line arguments (you need to provide exactly three otherwise
             the model uses the default values). The arguments change the following model
@@ -68,12 +68,12 @@
          <p class="content">num_of_agents is the total number of agents initiated in 
             the model. num_of_iterations is the number of iterations the model calculates
             for each frame of the model run (which runs for a total of 100 frames). 
-            neighbourhood is the minimum euclidian distance between two agents which 
+            neighbourhood is the minimum Euclidian distance between two agents which 
             allows them to share resources.
          </p>
          <h3>The model.py file</h3>
          <p class="content">The model.py file contains the main driver code for the
-            model. The programm imports the agent class, which it uses to create the
+            model. The program imports the agent class, which it uses to create the
             agents which it stores in a python list. The program contains a number of
             functions, which are described as follows.
          </p>
@@ -101,7 +101,7 @@
             which contains the following data:
          </p>
          <ul>
-            <li>The agents position in (x, y) format</li>
+            <li>The agent's position in (x, y) format</li>
             <li>A copy of the environment the agent is in</li>
             <li>The store of resources the agent holds, in other words how full it is</li>
             <li>The number of rows and columns of the environment which are used to wrap
@@ -121,13 +121,13 @@
 	   	achieved using the property function as explained 
 	   	<a href="https://docs.python.org/3/library/functions.html#property">here</a><p>
          <h4>move</h4>
-	    <p class="content">The move function takes a random floating pooint number from 0 to 1
+	    <p class="content">The move function takes a random floating point number from 0 to 1
 	       and if the number is &lt 0.5, 1 is added to the y coordinate otherwise 1 is subtracted
-	       from the y coordinate.A similar check is then perfomred for the x coordinate.</p>
+	       from the y coordinate. A similar check is then performed for the x coordinate.</p>
          <h4>eat</h4>
 	    <p class="content">The eat function checks if there are 10 or more resources in the 
-	       agents current location, and if there are it takes 10 resources and adds them to the
-	       agents store. If there are less than 10, the agent takes all availabe resources and
+	       agent's current location, and if there are it takes 10 resources and adds them to the
+	       agent's store. If there are less than 10, the agent takes all available resources and
 	       adds them to the store. Finally, if the agents store, as a result of adding the
 	       resources, exceeds 100 then the entire store is emptied to the current location.</p>
          <h4>share_with_neighbours</h4>
@@ -152,8 +152,8 @@
 	   	   the scale used is kept constant.</li>
             <li>Implement code to make the agents move in a more realistic way, taking a list of
 	 		  surrounding locations and randomly choosing from that. This is more realistic than
-	 	   	  the current situation where the agents move one unit in the x dirction AND one unit
-	 	      in the y direction. THis has the effect of the agents only moving diagonally, and
+	 	   	  the current situation where the agents move one unit in the x direction AND one unit
+	 	      in the y direction. This has the effect of the agents only moving diagonally, and
 	 		  in fact there will be agents that could never land on the same location because
 	 		  of this, similarly to how the bishops of one player cannot meet each other on the
 	 		  chess board.</li>
